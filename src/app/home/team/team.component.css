@@ -1,0 +1,11 @@
+.team-content {
+  flex-wrap       : wrap;
+  justify-content : space-evenly;
+}
+
+.team-card {
+  flex-basis  : 30%;
+  flex-shrink : 0;
+  height      : 200px;
+  min-width   : 200px;
+}

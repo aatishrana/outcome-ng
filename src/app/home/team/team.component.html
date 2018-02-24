@@ -1,3 +1,9 @@
-<p>
-  team works!
-</p>
+<div class="content padd-10-tb flex-row team-content">
+  <div class="card team-card flex-col btn-action flex-center-child">
+    <h1>+</h1>
+  </div>
+  <div *ngFor="let team of teams"
+       class="card team-card flex-col btn-action">
+    <p>{{team.name}}</p>
+  </div>
+</div>

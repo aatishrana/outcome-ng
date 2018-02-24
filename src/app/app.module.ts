@@ -12,6 +12,7 @@ import {WorkComponent} from './home/work/work.component';
 import {TeamComponent} from './home/team/team.component';
 import {ProjectComponent} from './home/project/project.component';
 import {ProductComponent} from './home/product/product.component';
+import {MainService} from './common/main.service';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import {ProductComponent} from './home/product/product.component';
       }
     ])
   ],
-  providers: [],
+  providers: [MainService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

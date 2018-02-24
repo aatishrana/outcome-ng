@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MainService} from '../../common/main.service';
+import {Team} from '../../model/team';
 
 @Component({
   selector: 'app-team',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  teams: Team[] = [];
 
-  ngOnInit() {
+  constructor(private service: MainService) {
   }
 
+  ngOnInit() {
+    this.service.Teams().subscribe((data) => {
+      for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+        this.teams.push(element);
+        this.teams.push(element);
+        this.teams.push(element);
+        this.teams.push(element);
+        this.teams.push(element);
+      }
+      // this.teams = data;
+    });
+  }
 }

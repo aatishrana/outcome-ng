@@ -34,11 +34,11 @@ h1, h2, h3, h4, h5, h6, p, div {
 }
 
 .scroll-h {
-  overflow-y : auto;
+  overflow-x : auto;
 }
 
 .scroll-v {
-  overflow-x : auto;
+  overflow-y : scroll;
 }
 
 .font-upper {
@@ -150,10 +150,21 @@ h1, h2, h3, h4, h5, h6, p, div {
   cursor : pointer;
 }
 
-.btn-action:hover, .active-link {
+.btn:hover, .active-link {
   background    : blueviolet;
   color         : white;
   border-radius : 4px;
+}
+
+.card {
+  background-color : #FFFFFF;
+  border-radius    : 4px;
+  box-shadow       : 0 0 4px grey;
+  margin-bottom    : 15px;
+}
+
+.card:hover {
+  box-shadow : 0 0 8px grey;
 }
 
 /* Large desktop */
