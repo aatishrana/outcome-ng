@@ -1,9 +1,15 @@
 html, body {
-  margin   : 0;
-  padding  : 0;
-  height   : 100%;
-  width    : 100%;
-  overflow : hidden;
+  margin           : 0;
+  padding          : 0;
+  height           : 100%;
+  width            : 100%;
+  overflow         : hidden;
+  background-color : #DFDFDF;
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  font-family : 'Montserrat', sans-serif;
+  color       : #888888;
 }
 
 .h100 {
@@ -35,6 +41,30 @@ html, body {
   overflow-x : auto;
 }
 
+.font-upper {
+  text-transform : uppercase;
+}
+
+.font-caps {
+  text-transform : capitalize;
+}
+
+.font-bold {
+  font-weight : 700;
+}
+
+.font-14 {
+  font-size : 14px;
+}
+
+.font-12 {
+  font-size : 12px;
+}
+
+.center-text {
+  text-align : center;
+}
+
 .flex-row {
   display        : flex;
   flex-direction : row;
@@ -53,6 +83,19 @@ html, body {
 .flex-col-reverse {
   display        : flex;
   flex-direction : column-reverse;
+}
+
+.flex-row-center-child {
+  align-items : center;
+}
+
+.flex-col-center-child {
+  justify-content : center;
+}
+
+.flex-center-child {
+  align-items     : center;
+  justify-content : center;
 }
 
 .f1 {
@@ -91,3 +134,70 @@ html, body {
   flex-grow : 0;
 }
 
+.padd-10 {
+  padding : 10px;
+}
+
+.padd-10-lr {
+  padding : 0 10px;
+}
+
+.padd-10-tb {
+  padding : 10px 0;
+}
+
+.btn-action {
+  cursor : pointer;
+}
+
+.btn-action:hover {
+  background    : blueviolet;
+  color         : white;
+  border-radius : 4px;
+}
+
+/* Large desktop */
+@media (min-width : 1200px) {
+  .content {
+    width  : 70%;
+    margin : 0 auto;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width : 768px) {
+  .content {
+    width  : 70%;
+    margin : 0 auto;
+  }
+
+  #navbar-bottom > div {
+    flex-basis : 16%;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width : 767px) {
+  .content {
+    width  : 80%;
+    margin : 0 auto;
+  }
+
+  #navbar-bottom {
+    flex-wrap     : wrap;
+    margin-bottom : 0;
+    height        : 50px;
+  }
+
+  #navbar-bottom > div {
+    flex-basis : 33%;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width : 480px) {
+  .content {
+    width  : 90%;
+    margin : 0 auto;
+  }
+}
