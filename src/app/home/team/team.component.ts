@@ -16,15 +16,11 @@ export class TeamComponent implements OnInit {
 
   ngOnInit() {
     this.service.Teams().subscribe((data) => {
-      for (let i = 0; i < data.length; i++) {
-        const element = data[i];
-        this.teams.push(element);
-        this.teams.push(element);
-        this.teams.push(element);
-        this.teams.push(element);
-        this.teams.push(element);
-      }
-      // this.teams = data;
+      this.teams = data;
     });
+  }
+
+  onNewTeamClick() {
+
   }
 }

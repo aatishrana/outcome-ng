@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6, p, div {
 }
 
 .scroll-v {
-  overflow-y : scroll;
+  overflow-y : auto;
 }
 
 .font-upper {
@@ -138,6 +138,10 @@ h1, h2, h3, h4, h5, h6, p, div {
   padding : 10px;
 }
 
+.padd-20 {
+  padding : 10px;
+}
+
 .padd-10-lr {
   padding : 0 10px;
 }
@@ -165,6 +169,14 @@ h1, h2, h3, h4, h5, h6, p, div {
 
 .card:hover {
   box-shadow : 0 0 8px grey;
+}
+
+.padd-20-lr {
+  padding : 0 20px;
+}
+
+.i-flex {
+  display : inline-flex;
 }
 
 /* Large desktop */

@@ -1,9 +1,16 @@
 <div class="content padd-10-tb flex-row team-content">
-  <div class="card team-card flex-col btn-action flex-center-child">
+  <div class="card team-card flex-col btn-action flex-center-child"
+       id="add-team"
+       (click)="onNewTeamClick()">
     <h1>+</h1>
   </div>
   <div *ngFor="let team of teams"
        class="card team-card flex-col btn-action">
-    <p>{{team.name}}</p>
+    <h3 class="center-text font-caps">{{team.name}}({{team.members.length}})</h3>
+    <div *ngFor="let user of team.members" class="padd-20">
+      <p class="font-14 font-caps i-flex no-margin">{{user.first_name}}</p>
+      <p class="font-14 font-caps i-flex no-margin">{{user.last_name}}</p>
+      <p class="font-12 no-margin">{{user.email}}</p>
+    </div>
   </div>
 </div>
