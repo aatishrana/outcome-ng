@@ -1,3 +1,15 @@
-<p>
-  project works!
-</p>
+<div class="content padd-10-tb flex-row project-content">
+  <div class="card project-card flex-col btn-action btn-add"
+       (click)="onNewProjectClick()">
+    <h1>+</h1>
+  </div>
+  <div *ngFor="let project of projects"
+       class="card project-card flex-col btn-action">
+    <h3 class="center-text font-caps">{{project.name}}({{project.product.name}})</h3>
+    <div *ngFor="let user of project.team.members" class="padd-20">
+      <p class="font-14 font-caps i-flex no-margin">{{user.first_name}}</p>
+      <p class="font-14 font-caps i-flex no-margin">{{user.last_name}}</p>
+      <p class="font-12 no-margin">{{user.email}}</p>
+    </div>
+  </div>
+</div>

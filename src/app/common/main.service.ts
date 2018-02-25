@@ -4,6 +4,7 @@ import {User} from '../model/user';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Product} from '../model/product';
 import {ProductBacklog} from '../model/backlog';
+import {Project} from '../model/project';
 /**
  * Created by Aatish on 2/24/2018.
  */
@@ -12,16 +13,17 @@ export class MainService {
   private teams: BehaviorSubject<Team[]>;
   private users: BehaviorSubject<User[]>;
   private products: BehaviorSubject<Product[]>;
-
+  private projects: BehaviorSubject<Project[]>;
   private xShowroomBacklogs: BehaviorSubject<ProductBacklog[]>;
 
   constructor() {
     this.users = new BehaviorSubject<User[]>(this.addSampleUsers());
     this.teams = new BehaviorSubject<Team[]>(this.addSampleTeams());
 
-
     this.xShowroomBacklogs = new BehaviorSubject<ProductBacklog[]>(this.addSampleXShowroomBacklogs());
     this.products = new BehaviorSubject<Product[]>(this.addSampleProducts());
+
+    this.projects = new BehaviorSubject<Project[]>(this.addSampleProjects());
   }
 
   public Teams() {
@@ -30,6 +32,10 @@ export class MainService {
 
   public Products() {
     return this.products;
+  }
+
+  public Projects() {
+    return this.projects;
   }
 
   private addSampleUsers() {
@@ -132,5 +138,23 @@ export class MainService {
       temp.push(value.clone());
     });
     return temp;
+  }
+
+  private addSampleProjects() {
+    const projects = [];
+
+    projects.push(new Project('1',
+      'xShowroom Android App',
+      this.users.getValue()[0],
+      this.teams.getValue()[2],
+      this.products.getValue()[0]));
+
+    projects.push(new Project('1',
+      'xShowroom iOS App',
+      this.users.getValue()[2],
+      this.teams.getValue()[1],
+      this.products.getValue()[0]));
+
+    return projects;
   }
 }
