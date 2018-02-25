@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Team} from '../model/team';
 import {User} from '../model/user';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Product} from '../model/product';
+import {ProductBacklog} from '../model/backlog';
 /**
  * Created by Aatish on 2/24/2018.
  */
@@ -9,16 +11,26 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class MainService {
   private teams: BehaviorSubject<Team[]>;
   private users: BehaviorSubject<User[]>;
+  private products: BehaviorSubject<Product[]>;
+
+  private xShowroomBacklogs: BehaviorSubject<ProductBacklog[]>;
 
   constructor() {
     this.users = new BehaviorSubject<User[]>(this.addSampleUsers());
     this.teams = new BehaviorSubject<Team[]>(this.addSampleTeams());
+
+
+    this.xShowroomBacklogs = new BehaviorSubject<ProductBacklog[]>(this.addSampleXShowroomBacklogs());
+    this.products = new BehaviorSubject<Product[]>(this.addSampleProducts());
   }
 
   public Teams() {
     return this.teams;
   }
 
+  public Products() {
+    return this.products;
+  }
 
   private addSampleUsers() {
     const users = [];
@@ -35,6 +47,7 @@ export class MainService {
     users.push(new User('11', 'mukul', 'goyal', 'mukul.goyal@outcom.com'));
     users.push(new User('12', 'kiran', 'kanade', 'kiran.kanade@outcom.com'));
     users.push(new User('13', 'aman', 'patel', 'aman.patel@outcom.com'));
+    users.push(new User('14', 'ravi', 'kumar', 'ravi.kumar@outcom.com'));
     return users;
   }
 
@@ -70,6 +83,54 @@ export class MainService {
         users[0], users[9], users[10], users[11], users[12]
       ]));
 
+    // return this.multiple(products);
     return teams;
+  }
+
+  private addSampleProducts() {
+    const products = [];
+    const xShowroomAdmin = this.users.getValue()[13];
+    const xShowroomBacklogs = this.xShowroomBacklogs.getValue();
+    products.push(new Product('1', 'xShowroom', 'xShowroom is a lead management system.', xShowroomAdmin, xShowroomBacklogs, false));
+
+    // return this.multiple(products);
+    return products;
+  }
+
+  private addSampleXShowroomBacklogs() {
+    const backlogs = [];
+
+    backlogs.push(new ProductBacklog('1',
+      'Lead Sync',
+      'I as user should be able to click a button and sync all ' +
+      'the new leads i have created up till now, from the xshowroom ' +
+      'tablet application',
+      'feature',
+      true,
+      'medium',
+      this.users.getValue()[7]));
+
+    backlogs.push(new ProductBacklog('2',
+      'Demo Video',
+      'I as user should be able to play a video in demo and it should' +
+      'start playing immediately if i have ever buffered and played it before',
+      'feature',
+      true,
+      'low',
+      this.users.getValue()[3]));
+
+    // return this.multiple(backlogs);
+    return backlogs;
+  }
+
+  private multiple(data) {
+    const temp = [];
+    data.forEach((value, index, array) => {
+      temp.push(value.clone());
+      temp.push(value.clone());
+      temp.push(value.clone());
+      temp.push(value.clone());
+    });
+    return temp;
   }
 }

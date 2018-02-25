@@ -1,3 +1,34 @@
-<p>
-  product works!
-</p>
+<div class="content padd-10-tb flex-col">
+  <div class="card btn-add product-add-card flex-col btn-add btn-action"
+       (click)="onAddNewProduct()">
+    <h1>+</h1>
+  </div>
+
+  <div class="card product-card flex-row"
+       *ngFor="let product of products;let i = index"
+       (click)="product.expanded=!product.expanded"
+       [ngClass]="{'collapsed-product':product.expanded==false}">
+
+    <div class="flex-col center-text padd-10 prod-detail">
+      <h2>{{product.name}}</h2>
+      <p class="para">{{product.desc}}</p>
+    </div>
+
+    <div class="padd-10 prod-backlog center-text"
+         [ngClass]="{'collapsed-product-backlog':product.expanded==false}">
+      <h3>Backlogs({{product.backlogs.length}})</h3>
+      <div class="flex-row">
+        <div class="card btn-action flex-col backlog-card btn-add"
+             (click)="onAddNewProductBacklog(product.id)">
+          <h1>+</h1>
+        </div>
+        <div class="card btn-action flex-col backlog-card"
+             *ngFor="let bl of product.backlogs">
+          <h4 class="center-text font-caps">{{bl.name}}</h4>
+          <p class="para">{{bl.desc}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

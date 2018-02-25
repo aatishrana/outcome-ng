@@ -1,0 +1,40 @@
+.product-add-card {
+  width      : 100%;
+  text-align : center;
+}
+
+.product-card {
+  width : 100%;
+}
+
+.prod-detail {
+  width : 30%;
+}
+
+.prod-backlog {
+  width         : 70%;
+  padding-right : 0;
+}
+
+.prod-backlog > div {
+  flex-wrap       : wrap;
+  justify-content : space-evenly;
+  padding-top     : 3px;
+  padding-bottom  : 3px;
+}
+
+.backlog-card {
+  flex-basis  : 30%;
+  flex-shrink : 0;
+  min-height  : 200px;
+  min-width   : 200px;
+}
+
+.collapsed-product {
+  height : 350px;
+}
+
+.collapsed-product-backlog {
+  overflow-y : auto;
+  height     : 90%;
+}
