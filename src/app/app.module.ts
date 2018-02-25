@@ -13,6 +13,8 @@ import {TeamComponent} from './home/team/team.component';
 import {ProjectComponent} from './home/project/project.component';
 import {ProductComponent} from './home/product/product.component';
 import {MainService} from './common/main.service';
+import { PlanStoryComponent } from './home/plan/plan-story/plan-story.component';
+import { PlanSprintComponent } from './home/plan/plan-sprint/plan-sprint.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import {MainService} from './common/main.service';
     WorkComponent,
     TeamComponent,
     ProjectComponent,
-    ProductComponent
+    ProductComponent,
+    PlanStoryComponent,
+    PlanSprintComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-plan',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanComponent implements OnInit {
 
-  constructor() { }
+  selected = 1;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -1,3 +1,12 @@
-<p>
-  plan works!
-</p>
+<div class="content plan-content h100">
+  <div class="flex-row">
+    <div class="f1-50 center-text btn-action" (click)="selected=1;"><h3>Stories</h3></div>
+    <div class="f1-50 center-text btn-action" (click)="selected=2;"><h3>Sprints</h3></div>
+  </div>
+  <div class="w100 h100" *ngIf="selected==1">
+    <app-plan-story></app-plan-story>
+  </div>
+  <div class="w100 h100" *ngIf="selected==2">
+    <app-plan-sprint></app-plan-sprint>
+  </div>
+</div>
