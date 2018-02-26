@@ -3,3 +3,7 @@
   box-shadow       : 0 4px 4px grey;
   margin-top       : 10px;
 }
+
+.selected-tab {
+  color : blueviolet;
+}

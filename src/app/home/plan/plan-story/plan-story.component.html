@@ -1,3 +1,29 @@
-<p>
-  plan-story works!
-</p>
+<div class="flex-row h100">
+  <div class="f1-50 flex-col padd-10-lr">
+    <select (change)="onProductSelect($event.target.value)">
+      <option *ngFor="let product of products;let i = index" value="{{i}}">{{product.name}}</option>
+    </select>
+    <div class="flex-col" *ngIf="selectedProduct">
+      <h2 class="center-text">Product Backlog</h2>
+      <div *ngFor="let bl of selectedProduct.backlogs"
+           class="card padd-10 btn-action backlog">
+        <h4 class="center-text no-margin noselect">{{bl.name}}</h4>
+        <p class="no-margin noselect">{{bl.desc}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="f1-50 flex-col padd-10-lr">
+    <select (change)="onProjectSelect($event.target.value)">
+      <option *ngFor="let project of projects;let i = index" value="{{i}}">{{project.name}}</option>
+    </select>
+    <div class="flex-col" *ngIf="selectedProject">
+      <h2 class="center-text">Stories</h2>
+      <!--<div *ngFor="let bl of selectedProject."-->
+      <!--class="card padd-10 btn-action">-->
+      <!--<h4 class="center-text no-margin">{{bl.name}}</h4>-->
+      <!--<p class="no-margin">{{bl.desc}}</p>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>

@@ -99,8 +99,8 @@ export class MainService {
     const xShowroomBacklogs = this.xShowroomBacklogs.getValue();
     products.push(new Product('1', 'xShowroom', 'xShowroom is a lead management system.', xShowroomAdmin, xShowroomBacklogs, false));
 
-    // return this.multiple(products);
-    return products;
+    return this.multiple(products);
+    // return products;
   }
 
   private addSampleXShowroomBacklogs() {
