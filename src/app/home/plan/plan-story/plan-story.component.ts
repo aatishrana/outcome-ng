@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MainService} from '../../../common/main.service';
 import {Product} from '../../../model/product';
 import {Project} from '../../../model/project';
+import {CommonService} from '../../../common/common.service';
+import {ProductBacklog} from '../../../model/backlog';
 
 @Component({
   selector: 'app-plan-story',
@@ -16,7 +18,10 @@ export class PlanStoryComponent implements OnInit {
   selectedProject: Project;
   projects: Project[];
 
-  constructor(private mainService: MainService) {
+  selectedBacklog: ProductBacklog;
+  overshadow;
+
+  constructor(private mainService: MainService, private commonService: CommonService) {
   }
 
   ngOnInit() {
@@ -32,6 +37,11 @@ export class PlanStoryComponent implements OnInit {
       .subscribe((projects) => {
         this.projects = projects;
       });
+
+    this.commonService.OverShadow()
+      .subscribe((value) => {
+        this.overshadow = value;
+      });
   }
 
 
@@ -45,5 +55,10 @@ export class PlanStoryComponent implements OnInit {
     if (index < this.projects.length) {
       this.selectedProject = this.projects[index];
     }
+  }
+
+  onBacklogClick(backlog) {
+    this.selectedBacklog = backlog;
+    this.commonService.overShadowOn();
   }
 }

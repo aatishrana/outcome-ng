@@ -13,8 +13,10 @@ import {TeamComponent} from './home/team/team.component';
 import {ProjectComponent} from './home/project/project.component';
 import {ProductComponent} from './home/product/product.component';
 import {MainService} from './common/main.service';
-import { PlanStoryComponent } from './home/plan/plan-story/plan-story.component';
-import { PlanSprintComponent } from './home/plan/plan-sprint/plan-sprint.component';
+import {PlanStoryComponent} from './home/plan/plan-story/plan-story.component';
+import {PlanSprintComponent} from './home/plan/plan-sprint/plan-sprint.component';
+import {CommonService} from './common/common.service';
+import { CreateStoryComponent } from './home/plan/plan-story/create-story/create-story.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { PlanSprintComponent } from './home/plan/plan-sprint/plan-sprint.compone
     ProjectComponent,
     ProductComponent,
     PlanStoryComponent,
-    PlanSprintComponent
+    PlanSprintComponent,
+    CreateStoryComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { PlanSprintComponent } from './home/plan/plan-sprint/plan-sprint.compone
       }
     ])
   ],
-  providers: [MainService],
+  providers: [MainService, CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

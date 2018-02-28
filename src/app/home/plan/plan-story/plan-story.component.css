@@ -1,4 +1,9 @@
 .backlog:hover {
-  background-color : #DFDFDF;
+  background-color: #dfdfdf;
 }
 
+select {
+  border: 1px solid white;
+  width: 40%;
+  color: grey;
+}

@@ -6,9 +6,10 @@
     <div class="flex-col" *ngIf="selectedProduct">
       <h2 class="center-text">Product Backlog</h2>
       <div *ngFor="let bl of selectedProduct.backlogs"
+           (click)="onBacklogClick(bl)"
            class="card padd-10 btn-action backlog">
         <h4 class="center-text no-margin noselect">{{bl.name}}</h4>
-        <p class="no-margin noselect">{{bl.desc}}</p>
+        <p class="no-margin noselect font-12">{{bl.desc}}</p>
       </div>
     </div>
   </div>
@@ -26,4 +27,9 @@
       <!--</div>-->
     </div>
   </div>
+</div>
+
+
+<div class="dialog" *ngIf="selectedBacklog&&overshadow">
+  <app-create-story [selectedBacklog]="selectedBacklog"></app-create-story>
 </div>

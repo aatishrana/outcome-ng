@@ -1,0 +1,9 @@
+<div class="flex-col padd-20 card">
+  <div class="flex-row">
+    <button style="margin-left: auto;" (click)="onSave()">Save</button>
+  </div>
+  <h3 class="center-text">{{selectedBacklog.name}}</h3>
+  <p class="para font-12">{{selectedBacklog.desc}}</p>
+  <hr width="95%">
+  <textarea style="min-height: 200px;">{{selectedBacklog.desc}}</textarea>
+</div>
