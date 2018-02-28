@@ -1,9 +1,12 @@
 .plan-content {
-  background-color : #FFFFFF;
-  box-shadow       : 0 4px 4px grey;
-  margin-top       : 10px;
+  background-color: #ffffff;
+  /*box-shadow       : 0 4px 4px grey;*/
 }
 
 .selected-tab {
-  color : blueviolet;
+  background-color: #ffffff;
+}
+
+.selected-tab > h3 {
+  color: blueviolet;
 }

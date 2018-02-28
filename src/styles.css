@@ -61,6 +61,14 @@ h1, h2, h3, h4, h5, h6, p, div {
   font-size : 12px;
 }
 
+.bg-ffffff {
+  background-color: #ffffff;
+}
+
+.bg-dfdfdf {
+  background-color: #dfdfdf;
+}
+
 .center-text {
   text-align : center;
 }
