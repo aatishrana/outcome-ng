@@ -5,6 +5,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Product} from '../model/product';
 import {ProductBacklog} from '../model/backlog';
 import {Project} from '../model/project';
+import {Story} from '../model/story';
 /**
  * Created by Aatish on 2/24/2018.
  */
@@ -15,6 +16,7 @@ export class MainService {
   private products: BehaviorSubject<Product[]>;
   private projects: BehaviorSubject<Project[]>;
   private xShowroomBacklogs: BehaviorSubject<ProductBacklog[]>;
+  private projectStories: BehaviorSubject<{ projectId: string, stories: Story[] }[]>;
 
   constructor() {
     this.users = new BehaviorSubject<User[]>(this.addSampleUsers());
@@ -24,6 +26,7 @@ export class MainService {
     this.products = new BehaviorSubject<Product[]>(this.addSampleProducts());
 
     this.projects = new BehaviorSubject<Project[]>(this.addSampleProjects());
+    this.projectStories = new BehaviorSubject<{ projectId: string, stories: Story[] }[]>(this.addSampleProjectStories());
   }
 
   public Teams() {
@@ -59,7 +62,6 @@ export class MainService {
 
   private addSampleTeams() {
     const users = this.users.getValue();
-    console.log(users);
     const teams = [];
     teams.push(new Team('1',
       'Voltas Team',
@@ -149,12 +151,38 @@ export class MainService {
       this.teams.getValue()[2],
       this.products.getValue()[0]));
 
-    projects.push(new Project('1',
+    projects.push(new Project('2',
       'xShowroom iOS App',
       this.users.getValue()[2],
       this.teams.getValue()[1],
       this.products.getValue()[0]));
 
     return projects;
+  }
+
+  private addSampleProjectStories() {
+    const projects = [];
+    projects.push({
+      projectId: '1',
+      stories: [],
+    });
+    projects.push({
+      projectId: '2',
+      stories: [],
+    });
+    return projects;
+  }
+
+  public getProjectStories(id: string) {
+    const projectStories = this.projectStories.getValue();
+    let stories = [];
+    for (let i = 0; i < projectStories.length; i++) {
+      const value = projectStories[i];
+      if (value.projectId == id) {
+        stories = value.stories;
+        break;
+      }
+    }
+    return stories;
   }
 }

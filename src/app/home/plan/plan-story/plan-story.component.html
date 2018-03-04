@@ -18,18 +18,18 @@
     <select (change)="onProjectSelect($event.target.value)">
       <option *ngFor="let project of projects;let i = index" value="{{i}}">{{project.name}}</option>
     </select>
-    <div class="flex-col" *ngIf="selectedProject">
+    <div class="flex-col" *ngIf="selectedProjectStories">
       <h2 class="center-text">Stories</h2>
-      <!--<div *ngFor="let bl of selectedProject."-->
-      <!--class="card padd-10 btn-action">-->
-      <!--<h4 class="center-text no-margin">{{bl.name}}</h4>-->
-      <!--<p class="no-margin">{{bl.desc}}</p>-->
-      <!--</div>-->
+      <div *ngFor="let story of selectedProjectStories"
+           class="card padd-10 btn-action">
+        <h4 class="center-text no-margin">{{story.backLog.name}}</h4>
+        <p class="no-margin">{{story.desc}}</p>
+      </div>
     </div>
   </div>
 </div>
 
 
 <div class="dialog" *ngIf="selectedBacklog&&overshadow">
-  <app-create-story [selectedBacklog]="selectedBacklog"></app-create-story>
+  <app-create-story [selectedBacklog]="selectedBacklog" (save)="onStorySave($event)"></app-create-story>
 </div>

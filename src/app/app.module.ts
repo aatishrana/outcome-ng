@@ -17,6 +17,7 @@ import {PlanStoryComponent} from './home/plan/plan-story/plan-story.component';
 import {PlanSprintComponent} from './home/plan/plan-sprint/plan-sprint.component';
 import {CommonService} from './common/common.service';
 import { CreateStoryComponent } from './home/plan/plan-story/create-story/create-story.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { CreateStoryComponent } from './home/plan/plan-story/create-story/create
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '', component: HomeComponent,
