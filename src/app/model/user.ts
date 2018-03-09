@@ -8,7 +8,20 @@ export class User {
               public email: string) {
   }
 
-  clone(): User {
+  public static parse(user) {
+    if (!user) {
+      return null;
+    }
+
+    const id = user.id ? user.id : '';
+    const first_name = user.first_name ? user.first_name : '';
+    const last_name = user.last_name ? user.last_name : '';
+    const email = user.email ? user.email : '';
+
+    return new User(id, first_name, last_name, email);
+  }
+
+  public clone(): User {
     return new User(this.id,
       this.first_name,
       this.last_name,

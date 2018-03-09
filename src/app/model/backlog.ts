@@ -12,6 +12,22 @@ export class ProductBacklog {
               public created_by: User) {
   }
 
+  public static parse(obj) {
+    if (!obj) {
+      return null;
+    }
+
+    const id = obj.id ? obj.id : '';
+    const name = obj.name ? obj.name : '';
+    const desc = obj.desc ? obj.desc : '';
+    const type = obj.type ? obj.type : '';
+    const active = obj.active ? obj.active : false;
+    const priority = obj.priority ? obj.priority : '';
+    const admin = obj.user ? User.parse(obj.user) : null;
+
+    return new ProductBacklog(id, name, desc, type, active, priority, admin);
+  }
+
   clone(): ProductBacklog {
     return new ProductBacklog(this.id,
       this.name,

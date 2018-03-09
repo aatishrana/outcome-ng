@@ -16,8 +16,12 @@ import {MainService} from './common/main.service';
 import {PlanStoryComponent} from './home/plan/plan-story/plan-story.component';
 import {PlanSprintComponent} from './home/plan/plan-sprint/plan-sprint.component';
 import {CommonService} from './common/common.service';
-import { CreateStoryComponent } from './home/plan/plan-story/create-story/create-story.component';
+import {CreateStoryComponent} from './home/plan/plan-story/create-story/create-story.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
+import {Apollo, ApolloModule} from 'apollo-angular';
+import {HttpClientModule} from '@angular/common/http';
+import {InMemoryCache} from 'apollo-cache-inmemory';
 
 
 @NgModule({
@@ -39,6 +43,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule, // provides HttpClient for HttpLink
+    ApolloModule,
+    HttpLinkModule,
     RouterModule.forRoot([
       {
         path: '', component: HomeComponent,
@@ -57,4 +64,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(apollo: Apollo,
+              httpLink: HttpLink) {
+    apollo.create({
+      // By default, this client will send queries to the
+      // `/graphql` endpoint on the same host
+      link: httpLink.create({ uri: 'http://localhost:9000/dev' }),
+      cache: new InMemoryCache()
+    });
+  }
 }
