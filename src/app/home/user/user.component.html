@@ -1,0 +1,19 @@
+<div class="content padd-10-tb flex-col">
+  <div class="card btn-add user-add-card flex-col btn-add btn-action"
+       (click)="onAddNewProduct()">
+    <h1>+</h1>
+  </div>
+
+  <div class="card flex-row user-card"
+       *ngFor="let user of users">
+
+    <div class="flex-row flex-center-child user-card-icon">
+      <p class="text-ffffff font-upper">{{getInitials(user)}}</p>
+    </div>
+
+    <p class="font-caps">{{user.first_name}}</p>
+    <p class="font-caps">&nbsp;{{user.last_name}}</p>
+    <p class="user-email">&nbsp;{{user.email}}</p>
+
+  </div>
+</div>

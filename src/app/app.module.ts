@@ -22,6 +22,7 @@ import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
 import {Apollo, ApolloModule} from 'apollo-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {InMemoryCache} from 'apollo-cache-inmemory';
+import {UserComponent} from './home/user/user.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
     ProductComponent,
     PlanStoryComponent,
     PlanSprintComponent,
-    CreateStoryComponent
+    CreateStoryComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
           {path: '', component: DashboardComponent, pathMatch: 'full'},
           {path: 'plan', component: PlanComponent},
           {path: 'work', component: WorkComponent},
+          {path: 'users', component: UserComponent},
           {path: 'team', component: TeamComponent},
           {path: 'project', component: ProjectComponent},
           {path: 'product', component: ProductComponent},
@@ -69,7 +72,7 @@ export class AppModule {
     apollo.create({
       // By default, this client will send queries to the
       // `/graphql` endpoint on the same host
-      link: httpLink.create({ uri: 'http://localhost:9000/dev' }),
+      link: httpLink.create({uri: 'http://localhost:9000/dev'}),
       cache: new InMemoryCache()
     });
   }
