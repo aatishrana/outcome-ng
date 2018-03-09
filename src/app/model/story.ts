@@ -12,6 +12,19 @@ export class Story {
               public project: Project) {
   }
 
+  public static parse(obj) {
+    if (!obj) {
+      return null;
+    }
+
+    const id = obj.id ? obj.id : '';
+    const desc = obj.desc ? obj.desc : '';
+    const status = obj.status ? obj.status : '';
+    const point = obj.point ? obj.point : '';
+    const backlog = obj.backlog ? ProductBacklog.parse(obj.backlog) : null;
+    const project = obj.project ? Project.parse(obj.project) : null;
+  }
+
   clone(): Story {
     return new Story(this.id,
       this.desc,

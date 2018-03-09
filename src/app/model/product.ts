@@ -24,9 +24,9 @@ export class Product {
     const admin = obj.user ? User.parse(obj.user) : null;
     const backlogs = [];
 
-    if (obj.backlogs) {
-      for (let i = 0; i < obj.backlogs.length; i++) {
-        const backlog = ProductBacklog.parse(obj.backlogs[i]);
+    if (obj.productbacklogs) {
+      for (let i = 0; i < obj.productbacklogs.length; i++) {
+        const backlog = ProductBacklog.parse(obj.productbacklogs[i]);
         if (backlog) {
           backlogs.push(backlog);
         }
