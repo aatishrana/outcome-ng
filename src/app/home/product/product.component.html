@@ -23,7 +23,8 @@
           <h1>+</h1>
         </div>
         <div class="card btn-action flex-col backlog-card"
-             *ngFor="let bl of product.backlogs">
+             *ngFor="let bl of product.backlogs"
+             (click)="onEditProductBacklog(bl)">
           <h4 class="center-text font-caps">{{bl.name}}</h4>
           <p class="para">{{bl.desc}}</p>
         </div>
@@ -31,4 +32,9 @@
     </div>
 
   </div>
+</div>
+
+
+<div class="dialog" *ngIf="newEdit&&overshadow">
+  <app-product-backlog-new [prodId]="prodId" [backlog]="backlog" [newEditType]="newEditType"></app-product-backlog-new>
 </div>

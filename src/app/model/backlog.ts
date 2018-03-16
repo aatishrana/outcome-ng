@@ -20,7 +20,7 @@ export class ProductBacklog {
     const id = obj.id ? obj.id : '';
     const name = obj.name ? obj.name : '';
     const desc = obj.desc ? obj.desc : '';
-    const type = obj.type ? obj.type : '';
+    const type = obj.type_cd ? obj.type_cd : '';
     const active = obj.active ? obj.active : false;
     const priority = obj.priority ? obj.priority : '';
     const admin = obj.user ? User.parse(obj.user) : null;

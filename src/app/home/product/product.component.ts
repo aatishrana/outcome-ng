@@ -3,6 +3,8 @@ import {Product} from '../../model/product';
 import {MainService} from '../../common/main.service';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
+import {CommonService} from '../../common/common.service';
+import {ProductBacklog} from '../../model/backlog';
 
 const allProducts = gql`
   query{
@@ -33,8 +35,15 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   loading = true;
 
+  prodId = '';
+  backlog: ProductBacklog = null;
+  newEdit = false;
+  newEditType = '';
+  overshadow;
+
   constructor(private mainService: MainService,
-              private apollo: Apollo) {
+              private apollo: Apollo,
+              private commonService: CommonService) {
   }
 
   ngOnInit() {
@@ -58,13 +67,36 @@ export class ProductComponent implements OnInit {
           }
         }
       });
+
+    this.commonService.OverShadow().subscribe((value) => {
+      this.overshadow = value;
+    });
   }
 
   onAddNewProduct() {
-
+    this.stopClick();
   }
 
   onAddNewProductBacklog(productId) {
+    this.newEdit = true;
+    this.newEditType = 'New';
+    this.prodId = productId;
+    this.backlog = null;
+    this.commonService.overShadowOn();
+    this.stopClick();
+  }
 
+  onEditProductBacklog(backlog: ProductBacklog) {
+    console.log('onEditProductBacklog');
+    this.newEdit = true;
+    this.newEditType = 'Edit';
+    this.backlog = backlog;
+    this.prodId = '';
+    this.commonService.overShadowOn();
+    this.stopClick();
+  }
+
+  stopClick() {
+    event.stopPropagation();
   }
 }

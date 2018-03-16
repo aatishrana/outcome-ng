@@ -23,6 +23,7 @@ import {Apollo, ApolloModule} from 'apollo-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {UserComponent} from './home/user/user.component';
+import { ProductBacklogNewComponent } from './home/product/product-backlog-new/product-backlog-new.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {UserComponent} from './home/user/user.component';
     PlanStoryComponent,
     PlanSprintComponent,
     CreateStoryComponent,
-    UserComponent
+    UserComponent,
+    ProductBacklogNewComponent
   ],
   imports: [
     BrowserModule,
